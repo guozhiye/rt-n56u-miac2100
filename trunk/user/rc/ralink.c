@@ -1184,7 +1184,7 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 	fprintf(fp, "HT_RDG=%d\n", i_val);
 
 	//HT_LinkAdapt
-	fprintf(fp, "HT_LinkAdapt=%d\n", 0);
+	fprintf(fp, "HT_LinkAdapt=%d\n", 1);
 
 	//HT_OpMode
 	i_gfe = nvram_wlan_get_int(is_aband, "HT_OpMode");
@@ -1366,7 +1366,7 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 		fprintf(fp, "VHT_SGI=%d\n", 1);
 		
 		//VHT_BW_SIGNAL
-		fprintf(fp, "VHT_BW_SIGNAL=%d\n", 0);
+		fprintf(fp, "VHT_BW_SIGNAL=%d\n", 1);
 		
 		//VHT_DisallowNonVHT
 		fprintf(fp, "VHT_DisallowNonVHT=%d\n", 0);
@@ -1398,7 +1398,7 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 	// ITxBfEn
 	if (is_aband) {
 		i_val = nvram_wlan_get_int(1, "txbf");
-		if (i_val > 0 && nvram_wlan_get_int(1, "txbf_en") == 1)
+		if (i_val > 0 )
 			i_val = 1;
 		else
 			i_val = 0;
